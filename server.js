@@ -5,7 +5,11 @@ const usermodel=require('./user');
 const cors=require('cors');
 app.use(cors());
 app.use(express.json());
-mongoose.connect("mongodb+srv://hariharan:9944995381@cluster0.ex0oggl.mongodb.net/chatbot");
+/*mongoose.connect("mongodb+srv://hariharan:9944995381@cluster0.ex0oggl.mongodb.net/chatbot");*/
+mongoose.connect('mongodb+srv://hariharan:9944995381@cluster0.ex0oggl.mongodb.net/chatbot?retryWrites=true&w=majority',{
+  useNewUrlParser:true,
+  useUnifiedTopology:true
+}).then(()=>{console.log("success")}).catch((err)=>{console.log("no connection",err)});
 app.get('/getval', async (req, res) => {
     try {
       const result = await usermodel.find({key:"crop"});
