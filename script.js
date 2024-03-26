@@ -52,7 +52,7 @@ function init() {
             fet();
             async function fet(){
                 let dataToSend={"key":`${x}`};
-                let response = await fetch('http://localhost:5000/getvalues', {
+                let response = await fetch('https://chatbot-lhy5.onrender.com/getvalues', {
                 method: 'POST', // Use the HTTP method you need (e.g., POST)
                 headers: {
                   'Content-Type': 'application/json' // Set the appropriate content type
